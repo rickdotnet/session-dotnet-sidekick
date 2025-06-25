@@ -26,7 +26,7 @@ public static class HostingExtensions
         builder.Services.AddTransient<AppConfig>(x => x.GetRequiredService<IOptions<AppConfig>>().Value);
 
         var config = builder.Configuration.Get<AppConfig>()!;
-        Documents.DocumentsRoot = config.DocumentsVaultPath;
+        Documents.DocumentsRoot = config.DocumentsPath;
         
         return config;
     }
@@ -34,12 +34,14 @@ public static class HostingExtensions
     public static void AddLogging(this IHostApplicationBuilder builder)
     {
         Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Debug()
+            .MinimumLevel.Information()
             .Enrich.FromLogContext()
             .WriteTo.Console(
                 LogEventLevel.Debug,
                 "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
             .CreateLogger();
+
+        builder.Services.AddSerilog();
     }
 
     public static void AddAI(this IServiceCollection services, AppConfig config)
@@ -63,7 +65,7 @@ public static class HostingExtensions
                     AuthOpts = NatsAuthOpts.Default with
                     {
                         Username = config.NatsUser,
-                        Password = config.NatsPassword,
+                        Token = config.NatsPassword,
                     },
                 }
             )

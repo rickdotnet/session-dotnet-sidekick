@@ -4,11 +4,11 @@ public record AppConfig
 {
     public string GroqApiKey { get; set; } = Secrets.GroqApiKey;
     public string GitHubApiKey { get; set; } = Secrets.GitHubApiKey;
-    public string NatsUrl { get; set; } = "nats://localhost:4222";
-    public string NatsUser { get; set; } = "rick";
-    public string NatsPassword { get; set; } = "changeme"; // not used in demo
+    public string NatsUrl { get; set; } = "nats://rhino-nats.cloud:4222"; //Secrets.NatsUrl;
+    public string NatsUser { get; set; } = "dusty";
+    public string NatsPassword { get; set; } = Secrets.NatsToken;
     public string DustyWorkingDirectory 
         => Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.dusty";
-    public string DocumentsVaultPath 
-        => Path.Combine(DustyWorkingDirectory, "DocumentsVault");
+    public string DocumentsPath 
+        => Path.Combine(DustyWorkingDirectory, "Documents");
 }

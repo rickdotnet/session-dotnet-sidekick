@@ -1,4 +1,5 @@
 using Dusty.Shared;
+using Dusty.Shared.Hosting;
 using Dusty.Web.Components;
 using Microsoft.Extensions.Options;
 using NATS.Client.Core;
@@ -11,6 +12,7 @@ public static class Startup
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         var config = builder.AddConfig();
+        builder.AddLogging();
         builder.Services
             .AddHttpContextAccessor()
             .AddRazorComponents()
@@ -27,6 +29,8 @@ public static class Startup
                 },
             })
         );
+        
+        builder.Services.AddAI(config);
         
         return builder.Build();
     }
@@ -46,15 +50,5 @@ public static class Startup
             .AddInteractiveServerRenderMode();
         
         return app;
-    }
-    
-    private static AppConfig AddConfig(this WebApplicationBuilder builder)
-    {
-        builder.Configuration.AddEnvironmentVariables("DUST_");
-        builder.Configuration.AddJsonFile("appConfig.json", optional: true);
-        builder.Services.Configure<AppConfig>(builder.Configuration);
-        builder.Services.AddTransient<AppConfig>(x => x.GetRequiredService<IOptions<AppConfig>>().Value);
-
-        return builder.Configuration.Get<AppConfig>()!;
     }
 }

@@ -48,7 +48,7 @@ public record CreateServiceRequest
     public Dictionary<string, string> Binds { get; set; } = new();
 
     [Description("A dictionary of volumes to mount in the service container, where the key is the host path and the value is the container path. Example: { \"/host/path\": \"/container/path\" }")]
-    public Dictionary<string, string> Volumes { get; set; } = new();
+    public VolumeMapping Volumes { get; set; } = new();
 
     [Description("A list of port mappings for the service, where each mapping specifies a container port and a host port.")]
     public PortMapping[] PortMappings { get; set; } = [];
@@ -61,4 +61,16 @@ public record PortMapping
 {
     public uint ContainerPort { get; set; }
     public uint HostPort { get; set; }
+}
+
+public record VolumeMapping
+{
+    public string VolumeName { get; set; } = string.Empty;
+    public string ContainerPath { get; set; } = string.Empty;
+}
+
+public record EnvironmentVariable
+{
+    public required string Name { get; set; }
+    public required string Value { get; set; }
 }
