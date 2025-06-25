@@ -42,6 +42,7 @@
     {
         messages.Add(new ChatMessage(ChatRole.System, DustyPrompts.Chat));
         
+        tools.AddRange(Gist.Tools);
         tools.AddRange(Documents.Tools);
         tools.AddRange(Foreman.Tools);
 

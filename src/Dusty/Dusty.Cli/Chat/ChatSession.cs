@@ -21,6 +21,7 @@ public class ChatSession
         this.chatClient = chatClient;
 
         tools = [];
+        tools.AddRange(Gist.Tools);
         tools.AddRange(Documents.Tools);
         tools.AddRange(Foreman.Tools);
 

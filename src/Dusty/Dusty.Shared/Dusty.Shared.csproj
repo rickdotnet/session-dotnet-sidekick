@@ -20,6 +20,7 @@
       <PackageReference Include="RickDotNet.Aether.Providers.NATS" Version="1.0.7" />
       <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />
       <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+      <PackageReference Include="TextCopy" Version="6.2.1" />
     </ItemGroup>
 
 </Project>
