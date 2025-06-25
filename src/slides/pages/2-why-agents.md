@@ -11,7 +11,7 @@ Why not?
 ---
 layout: figure-side
 
-figureUrl: /images/llm-tokens.svg
+figureUrl: images/llm-tokens.svg
 hideInToc: true
 ---
 
@@ -28,7 +28,7 @@ hideInToc: true
 ---
 layout: figure-side
 
-figureUrl: /images/dr-evil.jpg
+figureUrl: images/dr-evil.jpg
 hideInToc: true
 ---
 
@@ -42,7 +42,7 @@ hideInToc: true
 ---
 layout: figure-side
 
-figureUrl: /images/dr-evil.jpg
+figureUrl: images/dr-evil.jpg
 hideInToc: true
 ---
 

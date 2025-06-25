@@ -1,7 +1,7 @@
 ---
 layout: figure-side
 
-figureUrl: /images/llm-tokens.svg
+figureUrl: images/llm-tokens.svg
 hideInToc: true
 ---
 
@@ -56,7 +56,7 @@ Not sure if anyone’s familiar with that charismatic gentleman from the ‘90s,
 layout: figure-side
 hideInToc: true
 figureCaption: wrestlejoy.com
-figureUrl: /images/dusty.jpg
+figureUrl: images/dusty.jpg
 ---
 
 # Dusty

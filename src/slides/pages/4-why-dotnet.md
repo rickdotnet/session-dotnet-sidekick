@@ -1,6 +1,6 @@
 ---
 layout: figure-side
-figureUrl: /images/dotnet.svg
+figureUrl: images/dotnet.svg
 ---
 
 # Why .NET?
@@ -50,7 +50,7 @@ I can only bring up so many, so I took the entry point approach
 ---
 layout: figure-side
 figureCaption: fat-free yogurt
-figureUrl: /images/yogurt.webp
+figureUrl: images/yogurt.webp
 ---
 
 # Microsoft.Extensions.AI

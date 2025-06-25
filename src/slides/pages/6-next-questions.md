@@ -1,6 +1,6 @@
 ---
 layout: figure-side
-figureUrl: /images/llm-tokens.svg
+figureUrl: images/llm-tokens.svg
 ---
 
 # What's Next

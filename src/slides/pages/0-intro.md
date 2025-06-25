@@ -1,6 +1,6 @@
 ---
 layout: image
-image: /images/sponsors.png
+image: images/sponsors.png
 hideInToc: true
 ---
 

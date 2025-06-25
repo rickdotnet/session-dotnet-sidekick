@@ -20,7 +20,7 @@ I've linked to the code used in this demo.
 ---
 layout: figure-side
 figureCaption: Dusty Rhodes
-figureUrl: /images/dusty.jpg
+figureUrl: images/dusty.jpg
 ---
 
 # Dusty Upgrade

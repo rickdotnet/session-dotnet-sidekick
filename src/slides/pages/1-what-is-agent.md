@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: /images/wizard.svg
+image: images/wizard.svg
 backgroundSize: contain
 ---
 
@@ -101,7 +101,7 @@ This is the simplest way to put it.
 ---
 layout: figure-side
 
-figureUrl: /images/llm-tokens.svg
+figureUrl: images/llm-tokens.svg
 hideInToc: true
 ---
 
@@ -124,7 +124,7 @@ Replace image with the one we use in the previous slide
 ---
 layout: figure
 figureCaption: Agent without an LLM
-figureUrl: /images/agent-loop0.svg
+figureUrl: images/agent-loop0.svg
 hideInToc: true
 ---
 
@@ -145,7 +145,7 @@ This is an agent without an LLM, but it still has a loop and can do things.
 ---
 layout: figure
 figureCaption: Agent with an LLM
-figureUrl: /images/agent-loop1.svg
+figureUrl: images/agent-loop1.svg
 hideInToc: true
 ---
 
@@ -164,7 +164,7 @@ The only difference is that it has an LLM in the loop.
 ---
 layout: figure
 figureCaption: Home is where you make it - Old Cajun Man
-figureUrl: /images/agent-loop2.svg
+figureUrl: images/agent-loop2.svg
 hideInToc: true
 ---
 
