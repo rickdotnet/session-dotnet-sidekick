@@ -26,7 +26,7 @@ public static class HostingExtensions
         builder.Services.AddTransient<AppConfig>(x => x.GetRequiredService<IOptions<AppConfig>>().Value);
 
         var config = builder.Configuration.Get<AppConfig>()!;
-        Obsidian.ObsidianRoot = config.ObsidianVaultPath;
+        Documents.DocumentsRoot = config.DocumentsVaultPath;
         
         return config;
     }

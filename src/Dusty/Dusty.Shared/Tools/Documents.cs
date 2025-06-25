@@ -4,9 +4,9 @@ using Serilog;
 
 namespace Dusty.Shared.Tools;
 
-public class Obsidian
+public class Documents
 {
-    public static string ObsidianRoot = string.Empty;
+    public static string DocumentsRoot = string.Empty;
 
     public static AIFunction[] Tools =>
     [
@@ -38,9 +38,9 @@ public class Obsidian
         };
     }
 
-    [Description("Safely save's or updates the content of a file in the user's Obsidian vault.")]
+    [Description("Safely save's or updates the content of a file in the user's Documents vault.")]
     public static Task SaveContent(
-        [Description("The path to the file in the Obsidian vault, relative to the vault root. For example, 'notes/my-note.md'.")]
+        [Description("The path to the file in the Documents vault, relative to the vault root. For example, 'notes/my-note.md'.")]
         string filePath,
         [Description("The content to save in the file. If the file already exists, it will be updated with this content.")]
         string content)
@@ -49,18 +49,18 @@ public class Obsidian
         return Task.CompletedTask;
     }
 
-    [Description("Safely retrieves the content of a file from the user's Obsidian vault. Returns a JSON formatted {\"error\": \"string\"} if the file does not exist or an error occurs.")]
+    [Description("Safely retrieves the content of a file from the user's Documents vault. Returns a JSON formatted {\"error\": \"string\"} if the file does not exist or an error occurs.")]
     public async static Task<string> GetContent(
-        [Description("The path to the file in the Obsidian vault, relative to the vault root. For example, 'notes/my-note.md'.")]
+        [Description("The path to the file in the Documents vault, relative to the vault root. For example, 'notes/my-note.md'.")]
         string filePath)
     {
         Log.Information("Retrieving content from file: {FilePath}", filePath);
         return "# This is my Title\n\nThis is the content of my document.";
     }
 
-    [Description("Lists all Markdown files in the Obsidian vault or a specific directory within it.")]
+    [Description("Lists all Markdown files in the Documents vault or a specific directory within it.")]
     public static string[] ListFiles(
-        [Description("The path to the directory in the Obsidian vault, relative to the vault root. For example, 'notes/'. If not provided, lists all files in the vault.")]
+        [Description("The path to the directory in the Documents vault, relative to the vault root. For example, 'notes/'. If not provided, lists all files in the vault.")]
         string? directoryPath = null)
     {
         return
@@ -75,9 +75,9 @@ public class Obsidian
         //
         // // Placeholder for actual implementation
         // var relativePath = directoryPath ?? string.Empty;
-        // var filePath = Path.Combine(ObsidianRoot, relativePath);
+        // var filePath = Path.Combine(DocumentsRoot, relativePath);
         // var files = Directory.GetFiles(filePath, "*.md", SearchOption.AllDirectories)
-        //     .Select(f => Path.GetRelativePath(ObsidianRoot, f))
+        //     .Select(f => Path.GetRelativePath(DocumentsRoot, f))
         //     .ToArray();
         //
         // return Task.FromResult(files);
@@ -85,8 +85,8 @@ public class Obsidian
 
     public static class Functions
     {
-        public const string SaveContent = "Obsidian.SaveContent";
-        public const string GetContent = "Obsidian.GetContent";
-        public const string ListFiles = "Obsidian.ListFiles";
+        public const string SaveContent = "Documents.SaveContent";
+        public const string GetContent = "Documents.GetContent";
+        public const string ListFiles = "Documents.ListFiles";
     }
 }

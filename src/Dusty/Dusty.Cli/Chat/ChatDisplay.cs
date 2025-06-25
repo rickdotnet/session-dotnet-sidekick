@@ -19,7 +19,7 @@ public class ChatDisplay
             ChatMode.CompoundBeta => new("[yellow]Compound Mode[/]"),
             _ => new("[red]Unknown Mode[/]")
         };
-        
+
         AnsiConsole.Write(rule);
     }
 

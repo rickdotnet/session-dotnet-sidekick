@@ -21,7 +21,7 @@ public class ChatSession
         this.chatClient = chatClient;
 
         tools = [];
-        tools.AddRange(Obsidian.Tools);
+        tools.AddRange(Documents.Tools);
         tools.AddRange(Foreman.Tools);
 
         State = new ChatSessionState(DustyPrompts.Chat);
@@ -34,6 +34,30 @@ public class ChatSession
 
         State.SetMode(newMode);
         ModeChanged?.Invoke(newMode);
+    }
+
+    private void SelectTools()
+    {
+        var selectedTools = AnsiConsole.Prompt(
+            new MultiSelectionPrompt<string>()
+                .Title("Select [green]tools[/]?")
+                .NotRequired()
+                .PageSize(10)
+                .InstructionsText(
+                    "[grey](Press [blue]<space>[/] to toggle a tool, " + 
+                    "[green]<enter>[/] to accept)[/]")
+                .AddChoiceGroup("Documents", "List Files", "Get Content", "Save Content")
+                .AddChoiceGroup("Other Tools", "Search", "Cheese")
+                .Select("List Files")
+                .Select("Get Content")
+                .Select("Save Content")
+                .Select("Search")
+                .Select("Cheese")
+                .Select("Documents")
+                .Select("Other Tools")
+            );
+        
+        AnsiConsole.MarkupLine($"[blue]You selected: {string.Join(", ", selectedTools)}[/]");
     }
 
     public Task<bool> ProcessCommandAsync(ChatCommand command)
@@ -63,8 +87,11 @@ public class ChatSession
                 AnsiConsole.MarkupLine("[red]Exiting session...[/]");
                 Environment.Exit(0);
                 return false;
-            case "t" or "tools":
+            case "t":
                 ChangeMode(ChatMode.Tools);
+                return true;
+            case "tools":
+                SelectTools();
                 return true;
             case "c" or "chat":
                 ChangeMode(ChatMode.Chat);
@@ -158,7 +185,7 @@ public class ChatSession
             return new ChatCommand();
 
         input = input.Trim();
-        
+
         // Shell command
         if (input.StartsWith("::", StringComparison.OrdinalIgnoreCase))
         {

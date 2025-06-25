@@ -9,6 +9,6 @@ public record AppConfig
     public string NatsPassword { get; set; } = "changeme"; // not used in demo
     public string DustyWorkingDirectory 
         => Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.dusty";
-    public string ObsidianVaultPath 
-        => Path.Combine(DustyWorkingDirectory, "ObsidianVault");
+    public string DocumentsVaultPath 
+        => Path.Combine(DustyWorkingDirectory, "DocumentsVault");
 }
